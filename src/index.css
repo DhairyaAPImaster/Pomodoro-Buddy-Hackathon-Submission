@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Forest Day Theme */
+    --background: 90 25% 8%;
+    --foreground: 90 20% 85%;
+
+    --card: 90 25% 10%;
+    --card-foreground: 90 20% 85%;
+
+    --popover: 90 25% 12%;
+    --popover-foreground: 90 20% 90%;
+
+    --primary: 135 60% 45%;
+    --primary-foreground: 90 25% 8%;
+
+    --secondary: 95 25% 15%;
+    --secondary-foreground: 90 20% 80%;
+
+    --muted: 95 20% 18%;
+    --muted-foreground: 90 15% 55%;
+
+    --accent: 120 50% 35%;
+    --accent-foreground: 90 25% 95%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 90 25% 95%;
+
+    --border: 95 20% 20%;
+    --input: 95 20% 20%;
+    --ring: 135 60% 45%;
+
+    --radius: 1rem;
+
+    /* Forest-specific colors */
+    --forest-dark: 130 40% 8%;
+    --forest-medium: 125 35% 15%;
+    --forest-light: 120 30% 25%;
+    --tree-trunk: 30 25% 20%;
+    --tree-leaf: 125 50% 40%;
+    --tree-bright: 140 70% 55%;
+    --leaf-green: 135 60% 45%;
+    --leaf-bright: 140 70% 55%;
+    --earth-brown: 25 30% 25%;
+    --moss-green: 110 40% 30%;
+    
+    /* Gradients */
+    --gradient-forest: linear-gradient(135deg, hsl(var(--forest-dark)), hsl(var(--forest-medium)));
+    --gradient-growth: linear-gradient(180deg, hsl(var(--leaf-bright)), hsl(var(--leaf-green)));
+    --gradient-timer: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--leaf-bright)));
+    
+    /* Glows and effects */
+    --glow-primary: 0 0 30px hsl(var(--primary) / 0.3);
+    --glow-success: 0 0 20px hsl(var(--leaf-bright) / 0.4);
+    --shadow-forest: 0 10px 30px -10px hsl(var(--forest-dark) / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 90 25% 10%;
+    --sidebar-foreground: 90 20% 80%;
+    --sidebar-primary: 135 60% 45%;
+    --sidebar-primary-foreground: 90 25% 8%;
+    --sidebar-accent: 95 25% 15%;
+    --sidebar-accent-foreground: 90 20% 85%;
+    --sidebar-border: 95 20% 20%;
+    --sidebar-ring: 135 60% 45%;
+  }
+
+  .dark {
+    /* Enhanced Dark Forest Theme */
+    --background: 90 25% 6%;
+    --foreground: 90 20% 90%;
+
+    --card: 90 25% 8%;
+    --card-foreground: 90 20% 90%;
+
+    --popover: 90 25% 10%;
+    --popover-foreground: 90 20% 95%;
+
+    --primary: 135 65% 50%;
+    --primary-foreground: 90 25% 6%;
+
+    --secondary: 95 25% 12%;
+    --secondary-foreground: 90 20% 85%;
+
+    --muted: 95 20% 15%;
+    --muted-foreground: 90 15% 60%;
+
+    --accent: 120 55% 40%;
+    --accent-foreground: 90 25% 98%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 90 25% 98%;
+
+    --border: 95 20% 18%;
+    --input: 95 20% 18%;
+    --ring: 135 65% 50%;
+
+    /* Enhanced forest colors for dark mode */
+    --forest-dark: 130 45% 5%;
+    --forest-medium: 125 40% 12%;
+    --forest-light: 120 35% 20%;
+    --tree-leaf: 125 55% 45%;
+    --tree-bright: 140 75% 60%;
+    --leaf-bright: 140 75% 60%;
+    
+    /* Enhanced glows for dark mode */
+    --glow-primary: 0 0 40px hsl(var(--primary) / 0.4);
+    --glow-success: 0 0 25px hsl(var(--leaf-bright) / 0.5);
+
+    --sidebar-background: 90 25% 8%;
+    --sidebar-foreground: 90 20% 85%;
+    --sidebar-primary: 135 65% 50%;
+    --sidebar-primary-foreground: 90 25% 6%;
+    --sidebar-accent: 95 25% 12%;
+    --sidebar-accent-foreground: 90 20% 90%;
+    --sidebar-border: 95 20% 18%;
+    --sidebar-ring: 135 65% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom animations */
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      filter: drop-shadow(0 0 10px hsl(var(--primary) / 0.3));
+    }
+    50% {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.5));
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+}
